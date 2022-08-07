@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom"
 const Login = () => {
-  const [email,setEmail] = React.useState("")
+  const [email,setEmail] = React.useState(`eve.holt@reqres.in`)
   const [password,setPassword] = React.useState("")
   const {handleIsAuth} = useContext(AuthContext);
   const {token} = useContext(AuthContext);
@@ -25,12 +25,12 @@ const Login = () => {
     <br/>
     <label>
       Email: 
-      <input type="text" placeholder="Enter email id"  onChange={(e) => setEmail(e.target.value)}/>
+      <input type="text" placeholder="Enter email id"  value={email} onChange={(e) => setEmail(e.target.value)}/>
     </label>
     <br/>
     <label>
       Password:
-      <input type="password"  placeholder="Enter password"  onChange={(e) => setPassword(e.target.value)}/>
+      <input type="password"  placeholder="Enter password" value={password}  onChange={(e) => setPassword(e.target.value)}/>
     </label>
     <br/>
     <button onClick={() => handleSubmit()}>Login</button>
